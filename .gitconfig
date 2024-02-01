@@ -1,0 +1,19 @@
+[filter "lfs"]
+	smudge = git-lfs smudge -- %f
+	process = git-lfs filter-process
+	required = true
+	clean = git-lfs clean -- %f
+
+[user]
+    name = Nhat	 
+    email = sirnhat0@gmail.com 
+
+[alias]
+    co = checkout
+    ci = commit
+    st = status
+    br = branch
+    hist = log --pretty=format:"%h %ad | %s%d [%an]" --graph --date=short
+    type = cat-file -t
+    dump = cat-file -p
+
