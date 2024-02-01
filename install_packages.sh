@@ -17,7 +17,7 @@ if [[ "$(grep -c '^zsh$' /etc/shells)" -eq 0 ]]; then
 fi
 chsh -s $(which zsh)
 
-# Install Zshell
+# Install oh my zshell
 
 sh -c "$(curl -fsSL https://raw.githubusercontent.com/ohmyzsh/ohmyzsh/master/tools/install.sh)"
 
@@ -34,6 +34,7 @@ fi
 # Array of packages to install
 packages=(
     "kitty"
+    "ttf-jetbrains-mono-nerd"
     "nvim"
     "fzf"
     "nvim-packer-git"
