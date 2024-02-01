@@ -1,0 +1,14 @@
+set selection-clipboard clipboard
+
+set recolor false
+set recolor-keephue true
+
+set statusbar-h-padding 12
+
+set statusbar-bg "#1F2544"
+set statusbar-fg "#FFD0EC"
+
+set inputbar-fg "#fbf1c7"
+set inputbar-bg "#7c6f64"
+
+set font "jetbrains mono nerd font"

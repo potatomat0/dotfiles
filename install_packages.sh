@@ -52,6 +52,5 @@ packages=(
 
 # Install packages using yay
 yay -S "${packages[@]}"
-
-echo "Packages installed successfully!"
+ "Packages installed successfully!"
 

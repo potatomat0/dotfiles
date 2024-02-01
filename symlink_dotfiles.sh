@@ -14,7 +14,7 @@ mkdir -p ~/.config_backup
 
 # Symlink configuration files to their appropriate locations
 for file in *; do
-    if [[ "$file" == ".tmux.conf" || "$file" == ".zshrc" ]]; then
+    if [[ "$file" == ".tmux.conf" || "$file" == ".zshrc" || "$file" == ".gitconfig" ]]; then
         ln -sf "$PWD/$file" "$HOME/$file"
     elif [[ "$file" == "newsboat" ]]; then
 	ln -sf "$PWD/$file" "$HOME/.newsboat"
