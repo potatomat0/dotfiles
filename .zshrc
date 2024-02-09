@@ -1,6 +1,5 @@
-alias nvimfzf="nvim -o \`fzf\`"
-alias md-vault="nvim ~/Documents/GitHub/obsidian-vault-sync/"
-alias gs="git status"
+if [[ -z "$TMUX" ]]; then tmux; fi
+eval "$(jump shell)"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -106,10 +105,11 @@ export LANG=en_US.UTF-8
 # users are encouraged to define aliases within the ZSH_CUSTOM folder.
 # For a full list of active aliases, run `alias`.
 #
-# Example aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-export NVIM_DIR=$PWD
-if [[ -z "$TMUX" ]]; then tmux; fi
-
+# alias zshconfig="nvim ~/.zshrc"
+# alias ohmyzsh="nvim ~/.oh-my-zsh"
+# 
+# # alias 
+# alias fzf="nvim $(fzf --height 40% --reverse)"
+# alias md-vault="nvim ~/Documents/GitHub/obsidian-vault-sync/"
+# alias gs="git status"
+# alias manual="compgen -c | fzf | xargs man"
