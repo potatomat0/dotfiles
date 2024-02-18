@@ -1,5 +1,4 @@
 if [[ -z "$TMUX" ]]; then tmux; fi
-eval "$(jump shell)"
 
 # If you come from bash you might have to change your $PATH.
 # export PATH=$HOME/bin:/usr/local/bin:$PATH
@@ -113,3 +112,8 @@ export LANG=en_US.UTF-8
 # alias md-vault="nvim ~/Documents/GitHub/obsidian-vault-sync/"
 # alias gs="git status"
 # alias manual="compgen -c | fzf | xargs man"
+
+# jump by golang - also a smart cd command
+# eval "$(jump shell)" 
+# zoxide - smart cd command
+eval "$(zoxide init zsh)"
