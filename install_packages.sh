@@ -54,7 +54,7 @@ packages=(
     "obsidian"
     "nnn"
     "cmus"
-    "nnn"
+    "yazi"
     "sed"
     "newsboat"  # Add more packages here as needed
 )
