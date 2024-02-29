@@ -117,3 +117,5 @@ export LANG=en_US.UTF-8
 # eval "$(jump shell)" 
 # zoxide - smart cd command
 eval "$(zoxide init zsh)"
+fpath=(~/.zsh.d/ $fpath)
+fpath=(~/.zsh.d/ $fpath)
