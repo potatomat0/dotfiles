@@ -1,7 +1,8 @@
 vim.g.mapleader = " "
-
+-- go to explorer
 vim.keymap.set("n", "<leader>ex", vim.cmd.Ex)
-
+-- U to redo 
+-- vim.api.nvim_set_keymap({ "n" }, "U", "<C-r>", { noremap = true })
 -- pressing F9 execute the current file and grant permission automatically
 _G.MakeExecutableAndExecute = function()
   vim.cmd("silent execute '!chmod +x %'")
