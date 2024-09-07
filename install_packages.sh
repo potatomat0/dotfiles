@@ -40,6 +40,7 @@ packages=(
     "lazygit"
     "btop"
     "nicotine+"
+    "retroarch"
     "git"
     "fzf"
     "nvim-packer-git"
