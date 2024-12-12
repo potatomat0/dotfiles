@@ -18,7 +18,7 @@ end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
   -- enter lsp server here, use :Mason to find any lsp and install them
-  ensure_installed = { 'zk' ,'custom_elements_ls', 'pylsp', 'eslint', 'tsserver', 'html', 'cssls'},
+  ensure_installed = { 'zk' ,'custom_elements_ls', 'pylsp', 'eslint','harper_ls', 'html', 'cssls', 'gopls'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()
@@ -47,3 +47,15 @@ cmp.setup({
     ['<C-Space>'] = cmp.mapping.complete(),
   }),
 })
+
+
+local opts = { noremap=true, silent=true }
+
+local function quickfix()
+	vim.lsp.buf.code_action({
+		filter = function(a) return a.isPreferred end,
+		apply = true
+	})
+end
+
+vim.keymap.set('n', '<leader>qf', quickfix, opts)

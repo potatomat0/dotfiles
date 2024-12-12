@@ -53,7 +53,7 @@ packages=(
     "code"
     "pandoc-bin"
     "obsidian"
-    "nnn"
+    "tldr"
     "cmus"
     "yazi"
     "sed"
