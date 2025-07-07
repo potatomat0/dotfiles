@@ -18,7 +18,7 @@ end)
 require('mason').setup({})
 require('mason-lspconfig').setup({
   -- enter lsp server here, use :Mason to find any lsp and install them
-  ensure_installed = { 'zk' ,'custom_elements_ls', 'pylsp', 'eslint','harper_ls', 'html', 'cssls', 'gopls'},
+  ensure_installed = { 'zk' ,'custom_elements_ls', 'pylsp', 'eslint','harper_ls', 'html', 'cssls','cpplint', 'gopls'},
   handlers = {
     lsp_zero.default_setup,
     lua_ls = function()

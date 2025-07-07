@@ -89,6 +89,7 @@ source $ZSH/oh-my-zsh.sh
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
+export EDITOR="nvim"
 # Preferred editor for local and remote sessions
 # if [[ -n $SSH_CONNECTION ]]; then
 #   export EDITOR='vim'
@@ -118,3 +119,13 @@ export LANG=en_US.UTF-8
 # zoxide - smart cd command
 eval "$(zoxide init zsh)"
 fpath=(~/.zsh.d/ $fpath)
+
+
+
+# gemini cli api 
+# https://github.com/google-gemini/gemini-cli
+if [ -f "$HOME/Documents/gemini/API.md" ]; then
+	  export GEMINI_API_KEY=$(cat "$HOME/Documents/gemini/API.md")
+  else
+	    echo "Warning: API key file not found at ~/Documents/gemini/API.md"
+fi

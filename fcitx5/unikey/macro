@@ -259,3 +259,4 @@ trgkhi: trong khi
 kb: kết bạn
 shebang: #!/usr/bin/env bash
 dkhr: điều khiển
+makecpp: cd ~/Downloads/UIT/HK2/DSA/build && cmake ../solutions && make

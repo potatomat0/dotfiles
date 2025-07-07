@@ -52,4 +52,9 @@ vim.api.nvim_set_keymap("n", "<C-down>", "<Plug>(VM-AddCursorUp)", { noremap = t
 
 
 
+-- Lua version of "Build all solutions" Neovim mapping
+
+vim.keymap.set("n", "<leader>ba", function()
+  vim.cmd("silent !cd ~/Downloads/UIT/HK2/DSA/build && cmake ../solutions/ && make")
+end, { silent = true })
 
