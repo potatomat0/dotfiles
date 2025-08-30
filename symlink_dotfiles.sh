@@ -16,6 +16,17 @@ mkdir -p ~/.config_backup
 for file in *; do
     if [[ "$file" == ".tmux.conf" || "$file" == ".zshrc" || "$file" == ".gitconfig" ]]; then
         ln -sf "$PWD/$file" "$HOME/$file"
+    elif [[ "$file" == "kitty" ]]; then
+        # Ensure kitty directory in ~/.config is a symlink to the repo folder
+        mkdir -p "$HOME/.config"
+        dest="$HOME/.config/kitty"
+        if [[ -e "$dest" || -L "$dest" ]]; then
+            # Backup existing kitty config (file/dir/symlink) before replacing
+            ts=$(date +%s)
+            mv -f "$dest" "$HOME/.config_backup/kitty_$ts" 2>/dev/null || true
+            rm -rf "$dest"
+        fi
+        ln -s "$PWD/$file" "$dest"
     elif [[ "$file" == "newsboat" ]]; then
 	ln -sf "$PWD/$file" "$HOME/.newsboat"
     else
@@ -31,4 +42,3 @@ for file in ~/.config/*; do
 done
 
 echo "Symlinks created successfully!"
-

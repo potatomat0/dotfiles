@@ -6,6 +6,24 @@ if [[ -z "$TMUX" ]]; then tmux; fi
 export ZSH="$HOME/.oh-my-zsh"
 export PATH="$PATH:$HOME/go/bin"
 
+# Ensure Oh My Zsh custom directory is set
+ZSH_CUSTOM="${ZSH_CUSTOM:-$ZSH/custom}"
+
+# Auto-install required plugins if missing (runs on new shell startup)
+if [ -d "$ZSH" ]; then
+  mkdir -p "$ZSH_CUSTOM/plugins"
+  if command -v git >/dev/null 2>&1; then
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-autosuggestions" ]; then
+      git clone --depth=1 https://github.com/zsh-users/zsh-autosuggestions "$ZSH_CUSTOM/plugins/zsh-autosuggestions" >/dev/null 2>&1 || echo "Warning: Failed to install zsh-autosuggestions"
+    fi
+    if [ ! -d "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" ]; then
+      git clone --depth=1 https://github.com/zsh-users/zsh-syntax-highlighting "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting" >/dev/null 2>&1 || echo "Warning: Failed to install zsh-syntax-highlighting"
+    fi
+  else
+    echo "Warning: git not found; cannot auto-install Zsh plugins"
+  fi
+fi
+
 # Set name of the theme to load --- if set to "random", it will
 # load a random theme each time oh-my-zsh is loaded, in which case,
 # to know which specific one was loaded, run: echo $RANDOM_THEME
@@ -75,12 +93,19 @@ ZSH_THEME="robbyrussell"
 plugins=(
   git
   bundler
-  zsh-syntax-highlighting
   zsh-autosuggestions
-  tmuxinator 
+  tmuxinator
+  # Keep syntax highlighting last for correctness
+  zsh-syntax-highlighting
 )
 
-source $ZSH/oh-my-zsh.sh
+if [ -f "$ZSH/oh-my-zsh.sh" ]; then
+  source "$ZSH/oh-my-zsh.sh"
+else
+  # Fallback: directly source plugins if Oh My Zsh isn't available
+  [ -f "$ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh" ] && source "$ZSH_CUSTOM/plugins/zsh-autosuggestions/zsh-autosuggestions.zsh"
+  [ -f "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh" ] && source "$ZSH_CUSTOM/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh"
+fi
 
 # User configuration
 
@@ -117,7 +142,6 @@ export EDITOR="nvim"
 # jump by golang - also a smart cd command
 # eval "$(jump shell)" 
 # zoxide - smart cd command
-eval "$(zoxide init zsh)"
 fpath=(~/.zsh.d/ $fpath)
 
 
@@ -129,3 +153,4 @@ if [ -f "$HOME/Documents/gemini/API.md" ]; then
   else
 	    echo "Warning: API key file not found at ~/Documents/gemini/API.md"
 fi
+eval "$(zoxide init zsh)"
