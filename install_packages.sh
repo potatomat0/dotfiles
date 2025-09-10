@@ -45,6 +45,7 @@ packages=(
     "fzf"
     "nvim-packer-git"
     "zoxide"
+    "task"
     "sampler"
     "tmux"
     "zathura"
@@ -57,8 +58,11 @@ packages=(
     "cmus"
     "yazi"
     "sed"
-    "newsboat"  # Add more packages here as needed
+    "newsboat"  # more packages here as needed
 )
+
+# this needs to be installed specifically by pacman (yay has to compile from scratch)
+pacman -S taskwarrior-tui
 
 # Install packages using yay
 yay -S "${packages[@]}"

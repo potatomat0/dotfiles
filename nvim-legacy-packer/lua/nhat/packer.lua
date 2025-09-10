@@ -46,4 +46,25 @@ return require('packer').startup(function(use)
 	use { 'junegunn/fzf', run = ":call fzf#install()" }
 	use ('junegunn/fzf.vim')
 	use { "mg979/vim-visual-multi", branch = "master" }
+	-- obsidian.vim 
+	use({  "epwalsh/obsidian.nvim", tag = "*",  -- recommended, use latest release instead of latest commit
+	requires = {
+		-- Required.
+		"nvim-lua/plenary.nvim",
+	},
+	config = function()
+		require("obsidian").setup({
+			workspaces = {
+				{
+					name = "personal",
+					path = "~/Documents/Github/obsidian-vault-sync",
+				},
+				{
+					name = "work",
+					path = "~/vaults/work",
+				},
+			},
+    })
+  end,
+})
 end)

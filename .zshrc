@@ -137,8 +137,8 @@ export EDITOR="nvim"
 # alias fzf="nvim $(fzf --height 40% --reverse)"
 # alias md-vault="nvim ~/Documents/GitHub/obsidian-vault-sync/"
 # alias gs="git status"
-# alias manual="compgen -c | fzf | xargs man"
-
+alias manual="compgen -c | fzf | xargs man"
+alias task="taskwarrior-tui"
 # jump by golang - also a smart cd command
 # eval "$(jump shell)" 
 # zoxide - smart cd command
